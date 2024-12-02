@@ -109,7 +109,7 @@ const ContactForm = () => {
                         {errorMessage && <p className="text-red-600 px-4">{errorMessage}</p>}
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 text-white px-6 py-3 rounded-md font-medium inline-flex items-center justify-center hover:bg-blue-700 transition-colors"
+                            className="w-full bg-green-500 text-white px-6 py-3 rounded-md font-medium inline-flex items-center justify-center hover:bg-green-700 transition-colors"
                         >
                             Send Message
                             <FaPaperPlane className="ml-2" />

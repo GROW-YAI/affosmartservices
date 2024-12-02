@@ -1,3 +1,4 @@
+import AboutInnovator from '../components/About/AboutInnovator'
 import AboutProduct from '../components/About/AboutProduct'
 import ContactForm from '../components/ContactForm'
 import Footer from '../components/Footer'
@@ -12,6 +13,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <AboutProduct />
+      <AboutInnovator />
       <ProductShowCase />
       <ContactForm />
       <Footer />
