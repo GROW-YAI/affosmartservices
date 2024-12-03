@@ -4,7 +4,7 @@ import ContactForm from '../components/ContactForm'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Navbar from '../components/Navbar'
-import ProductShowCase from '../Products/ProductShowCase'
+import ProductShowCase from '../components/Products/ProductShowCase'
 
 const App = () => {
 

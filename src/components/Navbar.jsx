@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaLeaf, FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 
 
 const Navbar = () => {
@@ -11,8 +11,9 @@ const Navbar = () => {
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center h-16">
                     <div className="flex items-center space-x-2">
-                        <FaLeaf className="text-green-600 text-2xl" />
-                        <span className="text-xl font-bold text-gray-900">AffoSmart Services</span>
+                        <span>
+                            <img src="/images/AffoSmart.png" alt="" className="w-24 h-auto" />
+                        </span>
                     </div>
 
                     {/* Desktop Menu */}

@@ -11,9 +11,7 @@ const AboutInnovator = () => {
                             <h3 className="text-2xl font-semibold">Samuel Affo</h3>
                             <p className="text-gray-600">
                                 Samuel Affo is a Ghanaian native whose roots in a farming community instilled in him a deep passion for
-                                agriculture, particularly vegetable farming. With over a decade of hands-on experience in cultivating the
-                                land, Samuel&apos;s expertise stems from his collaboration with his father, a revered chief farmer overseeing
-                                a sprawling 100-acre farm.
+                                agriculture, particularly vegetable farming.
                             </p>
                             <p className="text-gray-600">
                                 He is the founder and the CEO of AFFOsmart Services; a startup company best known for selling and

@@ -1,4 +1,4 @@
-import { FaInstagram, FaLeaf } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 
@@ -9,8 +9,9 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div className="space-y-4">
                         <div className="flex items-center space-x-2">
-                            <FaLeaf className="text-green-500 text-2xl" />
-                            <span className="text-xl font-bold text-white">AffoSmart Services</span>
+                        <span>
+                            <img src="/images/AffoSmart.png" alt="" className="w-24 h-auto" />
+                        </span>
                         </div>
                         <p className="text-sm">
                             Supporting local farmers, providing fresh organic produce to customers.

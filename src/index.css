@@ -1,3 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.product-swiper {
+  padding: 20px 0 40px !important;
+}
+
+.product-swiper .swiper-button-next,
+.product-swiper .swiper-button-prev {
+  color: #16a34a;
+}
+
+.product-swiper .swiper-pagination-bullet {
+  background: #16a34a;
+}
+
+.product-swiper .swiper-pagination-bullet-active {
+  background: #15803d;
+}
+
+.product-swiper .swiper-button-prev {
+  left: 0;
+}
+
+.product-swiper .swiper-button-next {
+  right: 0;
+}
+
+.product-swiper .swiper-slide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
