@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
+import { sendEmail } from "../utils/emailService";
+import toast, { Toaster } from "react-hot-toast";
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -8,8 +10,7 @@ const ContactForm = () => {
         message: "",
         subject: "",
     });
-
-    const [errorMessage, setErrorMessage] = useState("");
+    
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleInputChange = (e) => {
@@ -20,29 +21,31 @@ const ContactForm = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitted(true)
 
-        if (!formData.name || !formData.email || !formData.message) {
-            setErrorMessage("Please fill in all required fields");
-            return;
+        try {
+            const result = await sendEmail(formData);
+
+            if (result.success) {
+                toast.success(result.message);
+                setFormData({
+                    name: "",
+                    email: "",
+                    message: "",
+                    subject: "",
+                });
+            } else {
+                toast.error(result.message)
+            }
+        } catch (error) {
+            toast.error("An unexpected error occured. Please try again later.")
+            console.log("Contact form error:", error)
+        } finally {
+            setIsSubmitted(false)
         }
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData.email)) {
-            setErrorMessage("Please enter a valid email address");
-            return;
-        }
-
-        setErrorMessage("");
-        setIsSubmitted(true);
-
-        setFormData({
-            name: "",
-            email: "",
-            message: "",
-            subject: "",
-        });
     };
 
     return (
@@ -61,6 +64,7 @@ const ContactForm = () => {
                                 value={formData.name}
                                 onChange={handleInputChange}
                                 placeholder="Your Name"
+                                disabled={isSubmitted}
                                 required
                                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             />
@@ -75,6 +79,7 @@ const ContactForm = () => {
                                 value={formData.email}
                                 onChange={handleInputChange}
                                 placeholder="your@email.com"
+                                disabled={isSubmitted}
                                 required
                                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             />
@@ -89,6 +94,7 @@ const ContactForm = () => {
                                 value={formData.subject}
                                 onChange={handleInputChange}
                                 placeholder="Subject"
+                                disabled={isSubmitted}
                                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             />
                         </div>
@@ -103,19 +109,31 @@ const ContactForm = () => {
                                 placeholder="Your message ..."
                                 rows="4"
                                 required
+                                disabled={isSubmitted}
                                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             />
                         </div>
-                        {errorMessage && <p className="text-red-600 px-4">{errorMessage}</p>}
+
                         <button
                             type="submit"
-                            className="w-full bg-green-500 text-white px-6 py-3 rounded-md font-medium inline-flex items-center justify-center hover:bg-green-700 transition-colors"
+                            disabled={isSubmitted}
+                            className={
+                                `w-full bg-green-500 text-white px-6 py-3 rounded-md font-medium inline-flex items-center justify-center transition-colors
+                                ${isSubmitted ? "opacity-75 cursor-not-allowed" : "hover:bg-green-700"}`
+                            }
                         >
-                            Send Message
-                            <FaPaperPlane className="ml-2" />
+                            {isSubmitted ? (
+                                "Sending..."
+                            ) : (
+                                <>
+                                    Send Message
+                                    <FaPaperPlane className="ml-2" />
+                                </>
+                            )}
                         </button>
+
                     </form>
-                    {isSubmitted && <p>Your message has been delivered successfully</p>}
+                    <Toaster position="top-center" />
                 </div>
             </div>
         </section>

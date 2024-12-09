@@ -1,5 +1,4 @@
-import { FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaMeta, FaTiktok } from "react-icons/fa6";
 
 
 const Footer = () => {
@@ -40,20 +39,20 @@ const Footer = () => {
                         <h3 className="text-white font-semibold mb-4">Connect with Us</h3>
                         <div className="flex space-x-4">
                             <a
-                                href="https://instagram.com"
+                                href="https://web.facebook.com/profile.php?id=61570138556584 "
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-green-500 transition-colors"
                             >
-                                <FaInstagram className="text-2xl" />
+                                <FaMeta className="text-2xl" />
                             </a>
                             <a
-                                href="https://x.com"
+                                href="https://www.tiktok.com/@affosmartservices?is_from_webapp=1&sender_device=pc "
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-green-500 transition-colors"
                             >
-                                <FaXTwitter className="text-2xl" />
+                                <FaTiktok className="text-2xl" />
                             </a>
                         </div>
                     </div>
