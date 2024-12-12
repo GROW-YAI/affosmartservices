@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 
-
 const ProductCard = ({ product }) => {
     return (
         <div className="bg-white rounded-lg shadow-md overflow-hidden">

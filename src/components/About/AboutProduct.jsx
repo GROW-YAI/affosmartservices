@@ -1,24 +1,28 @@
-/* eslint-disable react/prop-types */
 import { Navigation, Pagination } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { FaHandshake, FaLeaf, FaTruck } from "react-icons/fa"
+import { FaHandshake, FaLeaf, FaTruck } from "react-icons/fa";
+import { motion } from "framer-motion";
 
-
+// eslint-disable-next-line react/prop-types
 function FeatureCard({ icon: Icon, title, description }) {
     return (
-        <div className="bg-white p-6 rounded-lg shadow-md h-full">
+        <motion.div
+            className="bg-white p-6 rounded-lg shadow-md h-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+        >
             <div className="text-green-600 text-3xl mb-4">
                 <Icon />
             </div>
             <h3 className="text-xl font-semibold mb-2">{title}</h3>
             <p className="text-gray-600">{description}</p>
-        </div>
-    )
+        </motion.div>
+    );
 }
-
 
 const AboutProduct = () => {
     const features = [
@@ -30,14 +34,14 @@ const AboutProduct = () => {
         {
             icon: FaHandshake,
             title: "Fair to Farmers",
-            description: "By eliminating middlemen, we ensure farmers receive fair compensation for their hard work while keeping prices reasonale for customers."
+            description: "By eliminating middlemen, we ensure farmers receive fair compensation for their hard work while keeping prices reasonable for customers."
         },
         {
             icon: FaTruck,
             title: "Fresh Delivery",
             description: "From farm straight to your doorstep. Our efficient delivery system ensures maximum freshness of your produce."
         }
-    ]
+    ];
 
     return (
         <section className="py-16 bg-gray-50">
@@ -72,7 +76,7 @@ const AboutProduct = () => {
                     </div>
 
                     {/* Desktop grid for medium screens and up */}
-                    <div className="hidden md:grid md:grid-cols-3 gap 8">
+                    <div className="hidden md:grid md:grid-cols-3 gap-8">
                         {features.map((feature, index) => (
                             <FeatureCard key={index} {...feature} />
                         ))}
@@ -80,7 +84,7 @@ const AboutProduct = () => {
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
-export default AboutProduct
+export default AboutProduct;

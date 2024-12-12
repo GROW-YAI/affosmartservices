@@ -1,13 +1,35 @@
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 
 const AboutInnovator = () => {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.4,
+    });
     return (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" ref={ref}>
             <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12">Meet Our Innovator</h2>
+
+                    {/* Animated Heading */}
+                    <motion.h2
+                        className="text-3xl font-bold text-center mb-12"
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: inView ? 1 : 0 }}
+                        transition={{ duration: 0.7 }}
+                    >
+                        Meet Our Innovator
+                    </motion.h2>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
+                        {/* Text Section with Animation */}
+                        <motion.div
+                            className="space-y-6"
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+                            transition={{ duration: 0.7 }}
+                        >
                             <h3 className="text-2xl font-semibold">Samuel Affo</h3>
                             <p className="text-gray-600">
                                 Samuel Affo is a Ghanaian native whose roots in a farming community instilled in him a deep passion for
@@ -30,17 +52,26 @@ const AboutInnovator = () => {
                                     10+ Years Experience in Farming
                                 </span>
                             </div>
-                        </div>
-                        <div className="aspect-w-3 aspect-h-4 rounded-lg overflow-hidden ml-40">
-                            <img src="/images/IMG_0268.JPG" alt="Innovator Image" className="h-96 rounded-lg" />
-                        </div>
+                        </motion.div>
+
+                        {/* Image Section with Animation */}
+                        <motion.div
+                            className="relative mt-8 md:mt-0 md:ml-40"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: inView ? 1 : 0 }}
+                            transition={{ duration: 0.7 }}
+                        >
+                            <img
+                                src="/images/IMG_0268.JPG"
+                                alt="Innovator Image"
+                                className="w-full h-auto md:w-4/5 md:h-96 rounded-lg object-cover mx-auto"
+                            />
+                        </motion.div>
                     </div>
                 </div>
-
             </div>
-
         </section>
-    )
+    );
 }
 
 export default AboutInnovator;
