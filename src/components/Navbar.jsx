@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FaShoppingCart } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
@@ -27,13 +26,6 @@ const Navbar = () => {
                         <a href="#contact" className="text-gray-600 hover:text-green-600">Contact</a>
                     </div>
 
-                    <div className="hidden md:flex items-center space-x-4">
-                        <button className="text-gray-600 hover:text-green-600 flex items-center">
-                            <FaShoppingCart className="text-xl mr-2" />
-                            <span>Cart (0)</span>
-                        </button>
-                    </div>
-
                     {/* Mobile Menu Button */}
                     <button
                         className="md:hidden"
@@ -59,15 +51,11 @@ const Navbar = () => {
                 transition={{ duration: 0.3 }}
             >
                 {isOpen && (
-                    <div className="flex flex-col space-y-4">
+                    <div className="flex flex-col space-y-4 ml-7">
                         <a href="#about" className="text-gray-600 hover:text-green-600">About</a>
                         <a href="#products" className="text-gray-600 hover:text-green-600">Shop</a>
                         <a href="#farmers" className="text-gray-600 hover:text-green-600">Our Farmers</a>
                         <a href="#contact" className="text-gray-600 hover:text-green-600">Contact</a>
-                        <button className="text-gray-600 hover:text-green-600 flex items-center">
-                            <FaShoppingCart className="text-xl mr-2" />
-                            <span>Cart (0)</span>
-                        </button>
                     </div>
                 )}
             </motion.div>

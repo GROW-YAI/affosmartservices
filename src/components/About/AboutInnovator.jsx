@@ -8,7 +8,7 @@ const AboutInnovator = () => {
         threshold: 0.4,
     });
     return (
-        <section className="py-16 bg-white" ref={ref}>
+        <section id="about" className="py-16 bg-white" ref={ref}>
             <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto">
 

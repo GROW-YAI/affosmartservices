@@ -50,6 +50,7 @@ const ContactForm = () => {
 
     return (
         <motion.section
+            id="contact"
             className="bg-white py-20"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
