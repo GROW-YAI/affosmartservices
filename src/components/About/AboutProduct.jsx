@@ -28,7 +28,7 @@ const AboutProduct = () => {
     const features = [
         {
             icon: FaLeaf,
-            title: "100% Organic",
+            title: "Fresh Natural  Proudce",
             description: "We sell organic products, grown by experienced farmers, without harmful pesticides and synthetic fertilizers."
         },
         {

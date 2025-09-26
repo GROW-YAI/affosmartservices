@@ -6,6 +6,7 @@ import Hero from '../components/Hero'
 import Navbar from '../components/Navbar'
 import ProductShowCase from '../components/Products/ProductShowCase'
 
+
 const App = () => {
 
   return (
