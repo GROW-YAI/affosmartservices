@@ -3,7 +3,7 @@ export const products = [
       id: 1,
       name: "Fresh Fruit Bundle",
       description: "Handpicked organic fruits from certified organic orchards.",
-      imageUrl: "/images/products/fruit-bundle.jpg",
+      imageUrl: "/images/products/fruits.jpg",
       category: "Subscription Box"
     },
     {
@@ -17,7 +17,7 @@ export const products = [
       id: 3,
       name: "Organic Honey",
       description: "Raw, unfiltered honey from local beekeepers.",
-      imageUrl: "/images/products/honey.jpg",
+      imageUrl: "/images/products/organic honey.jpg",
       category: "Pantry"
     }
   ];

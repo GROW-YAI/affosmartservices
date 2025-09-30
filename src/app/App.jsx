@@ -1,6 +1,7 @@
 import AboutInnovator from '../components/About/AboutInnovator'
 import AboutProduct from '../components/About/AboutProduct'
 import ContactForm from '../components/ContactForm'
+import FarmlandsVideo from '../components/Farmers/FarmlandsVideo'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Navbar from '../components/Navbar'
@@ -16,6 +17,7 @@ const App = () => {
         <Hero />
         <AboutProduct />
         <AboutInnovator />
+        <FarmlandsVideo/>
         <ProductShowCase />
         <ContactForm />
         <Footer />
