@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Navbar from '../components/Navbar'
 import ProductShowCase from '../components/Products/ProductShowCase'
+import WhatsAppFloating from '../components/whatsapp/WhatsAppFloating'
 
 
 const App = () => {
@@ -16,12 +17,14 @@ const App = () => {
       <div className="pt-16">
         <Hero />
         <AboutProduct />
-        <AboutInnovator />
-        <FarmlandsVideo/>
         <ProductShowCase />
+        <FarmlandsVideo/>
+        <AboutInnovator />
         <ContactForm />
         <Footer />
       </div>
+        {/* Floating chat (place at the end so it overlays page) */}
+      <WhatsAppFloating/>
     </div>
   )
 }

@@ -3,71 +3,76 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaPhone } from "react-icons/fa";
 
-
-
-const PHONE_NUMBER = " 0596922053"; // change as needed
+const PHONE_NUMBER = "0596922053"; // update as needed
 
 const FarmlandsVideo = ({
   videoSrc = "/images/farmlands/Afosmart.mp4",
   poster = "/images/farmlands/Affosmart-video.jpg",
-  title = "Farmers",
+  title = "Our Farmers",
   subtitle = "Sustainable farms, fresh produce",
-  description = "See where our produce is grown. This short video showcases the farms and the people behind the harvest.",
+  description = "Explore the roots of our harvest. This short video showcases our farms and the dedicated farmers behind every crop.",
 }) => {
   return (
-    <section id="farmers" className="py-16 bg-gray-50">
+    <section id="farmers" className="py-20 bg-gradient-to-b from-green-50 to-white">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-8">
-          <motion.h2
-            className="text-3xl font-extrabold text-gray-900"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            {title}
-          </motion.h2>
-          <p className="text-green-600 font-semibold mt-2">{subtitle}</p>
-          <p className="text-gray-600 mt-4">{description}</p>
-        </div>
-
+        {/* Section Heading */}
         <motion.div
-          className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.45 }}
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-          {/* Video container */}
-          <div className="relative">
+          <h2 className="text-4xl font-extrabold text-gray-900">{title}</h2>
+          <p className="text-green-600 font-semibold mt-2">{subtitle}</p>
+        </motion.div>
+
+        {/* Two-column layout */}
+        <div className="grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+          {/* Video Side */}
+          <motion.div
+            className="relative rounded-2xl overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <video
               src={videoSrc}
               poster={poster}
               controls
               playsInline
               preload="metadata"
-              className="w-full h-auto max-h-[60vh] bg-black object-cover"
+              className="w-full h-full object-cover"
               aria-label="Farmlands video"
             />
-
-            {/* subtle watermark / badge */}
-            <div className="absolute top-4 left-4 bg-white/80 text-xs text-gray-700 rounded-full px-3 py-1 shadow-sm">
-               Farmlands
+            {/* Watermark */}
+            <div className="absolute top-4 left-4 bg-white/80 text-sm text-gray-800 rounded-full px-3 py-1 shadow-sm">
+              Farmlands
             </div>
-          </div>
+          </motion.div>
 
-          {/* Footer area with short write-up + CTAs */}
-          <div className="p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-left">
-              <h3 className="text-xl font-semibold text-gray-900">Visit the farms (short tour)</h3>
-              <p className="text-gray-600 mt-2 hidden md:block">
-                Watch this short clip to understand our farming methods and meet the farmers who grow your food.
-              </p>
-            </div>
+          {/* Text & CTA Side */}
+          <motion.div
+            className="flex flex-col justify-center text-left space-y-6"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 leading-snug">
+              A Glimpse Into Nature’s Work
+            </h3>
+            <p className="text-gray-700 leading-relaxed">
+              {description} Farmers cultivate with care, combining traditional
+              methods and sustainable practices to ensure freshness and quality
+              from our soil to your table.
+            </p>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap gap-4 pt-4">
               <a
                 href={`tel:${PHONE_NUMBER}`}
-                className="inline-flex items-center bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition-all shadow-md hover:shadow-lg"
                 aria-label={`Call AFFOSmart at ${PHONE_NUMBER}`}
               >
                 <FaPhone className="mr-2" /> Call Now
@@ -75,19 +80,14 @@ const FarmlandsVideo = ({
 
               <a
                 href="#contact"
-                className="inline-flex items-center bg-white border border-gray-200 px-4 py-2 rounded-lg text-gray-800 hover:bg-gray-50 transition-colors"
+                className="inline-flex items-center bg-white border border-gray-300 px-6 py-3 rounded-xl text-gray-800 hover:bg-gray-100 transition-all font-semibold"
                 aria-label="Contact us"
               >
                 Contact Us
               </a>
             </div>
-          </div>
-        </motion.div>
-
-        {/* Small accessibility / performance note */}
-        <p className="text-xs text-gray-400 text-center mt-4">
-       
-        </p>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
