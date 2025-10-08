@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
  *  - position (string): CSS position class, default "right-6 bottom-6"
  */
 const WhatsAppFloating = ({
-  phone = "233542289609", // <-- set your WhatsApp number here WITHOUT '+' or spaces
+  phone = "233599587383", // <-- set your WhatsApp number here WITHOUT '+' or spaces
   message = "Hello! I want to place an order / ask about produce.",
   position = "right-6 bottom-6",
 }) => {
