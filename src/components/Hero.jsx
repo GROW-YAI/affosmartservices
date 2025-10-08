@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 
-const PHONE_NUMBER = "+233240077";
+const PHONE_NUMBER = "0596922053";
 
 const Hero = () => {
   const isMobileDevice = () =>
