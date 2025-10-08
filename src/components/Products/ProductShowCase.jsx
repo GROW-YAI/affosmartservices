@@ -163,7 +163,7 @@ export default function ProductShowCase() {
                   </button>
                 </div>
 
-                <img src={selected.imageUrl || "/images/products/placeholder.jpg"} alt={selected.name} className="w-full h-64 object-cover" />
+                <img src={selected.imageUrl || "/images/products/placeholder.jpg"} alt={selected.name} className="w-full h-64 object-cover" loading="lazy" />
 
                 <div className="p-4">
                   <p className="text-gray-700">{selected.description}</p>
