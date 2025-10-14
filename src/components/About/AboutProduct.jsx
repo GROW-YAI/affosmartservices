@@ -10,15 +10,15 @@ import { motion } from "framer-motion";
 function FeatureCard({ icon: Icon, title, description }) {
     return (
         <motion.div
-            className="bg-white p-6 rounded-lg shadow-md h-full"
+            className="h-full p-6 bg-white rounded-lg shadow-md"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <div className="text-green-600 text-3xl mb-4">
+            <div className="mb-4 text-3xl text-green-600">
                 <Icon />
             </div>
-            <h3 className="text-xl font-semibold mb-2">{title}</h3>
+            <h3 className="mb-2 text-xl font-semibold">{title}</h3>
             <p className="text-gray-600">{description}</p>
         </motion.div>
     );
@@ -28,8 +28,8 @@ const AboutProduct = () => {
     const features = [
         {
             icon: FaLeaf,
-            title: "Fresh Natural  Proudce",
-            description: "We sell organic products, grown by experienced farmers, without harmful pesticides and synthetic fertilizers."
+            title: "Quality products",
+            description: "We sell fresh produce, grown by experienced farmers, without harmful pesticides and manufactured products from trusted sources"
         },
         {
             icon: FaHandshake,
@@ -38,16 +38,16 @@ const AboutProduct = () => {
         },
         {
             icon: FaTruck,
-            title: "Fresh Delivery",
-            description: "From farm straight to your doorstep. Our efficient delivery system ensures maximum freshness of your produce."
+            title: "Fast Delivery",
+            description: "From farm or factory straight to your doorstep. Our efficient delivery system ensures maximum freshness of your food item."
         }
     ];
 
     return (
         <section className="py-16 bg-gray-50">
-            <div className="container mx-auto px-4">
+            <div className="container px-4 mx-auto">
                 <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12">Why Choose AFFOSmart Services</h2>
+                    <h2 className="mb-12 text-3xl font-bold text-center">Why Choose AFFOSmart Services</h2>
 
                     {/* Mobile Carousel for small screens */}
                     <div className="md:hidden">
@@ -76,7 +76,7 @@ const AboutProduct = () => {
                     </div>
 
                     {/* Desktop grid for medium screens and up */}
-                    <div className="hidden md:grid md:grid-cols-3 gap-8">
+                    <div className="hidden gap-8 md:grid md:grid-cols-3">
                         {features.map((feature, index) => (
                             <FeatureCard key={index} {...feature} />
                         ))}
